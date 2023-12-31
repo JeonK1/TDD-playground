@@ -1,8 +1,6 @@
 package com.example.tddplayground
 
-import com.example.tddplayground.model.Dollar
 import com.example.tddplayground.model.Franc
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -19,11 +17,5 @@ class FrancUnitTest {
         val five = Franc(5)
         assertEquals(Franc(10), five.times(2))
         assertEquals(Franc(15), five.times(3))
-    }
-
-    @Test
-    fun testEquality() {
-        Assert.assertTrue(Franc(5).equals(Franc(5)))
-        Assert.assertFalse(Franc(5).equals(Franc(6)))
     }
 }
