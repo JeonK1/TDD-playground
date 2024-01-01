@@ -1,10 +1,10 @@
 package com.example.tddplayground.model
 
-abstract class Money(val amount: Int) {
+abstract class Money(val amount: Int, val currency: String) {
 
     companion object {
-        fun dollar(amount: Int): Dollar = Dollar(amount)
-        fun franc(amount: Int): Franc = Franc(amount)
+        fun dollar(amount: Int): Dollar = Dollar(amount, "USD")
+        fun franc(amount: Int): Franc = Franc(amount, "CHF")
     }
 
     override fun equals(other: Any?): Boolean {
