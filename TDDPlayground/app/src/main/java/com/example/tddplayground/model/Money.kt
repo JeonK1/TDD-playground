@@ -1,6 +1,6 @@
 package com.example.tddplayground.model
 
-open class Money(val amount: Int, val currency: String) {
+open class Money(val amount: Int, val currency: String): Expression {
 
     companion object {
         fun dollar(amount: Int): Money = Money(amount, "USD")
@@ -14,5 +14,9 @@ open class Money(val amount: Int, val currency: String) {
 
     fun times(multiplier: Int): Money {
         return Money(amount * multiplier, currency)
+    }
+
+    fun plus(money: Money): Expression {
+        return Money(amount + money.amount, currency)
     }
 }

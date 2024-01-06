@@ -1,5 +1,7 @@
 package com.example.tddplayground
 
+import com.example.tddplayground.model.Bank
+import com.example.tddplayground.model.Expression
 import com.example.tddplayground.model.Money
 import org.junit.Assert.*
 import org.junit.Test
@@ -23,5 +25,14 @@ class MoneyUnitTest {
         val five: Money = Money.dollar(5)
         assertEquals(Money.dollar(10), five.times(2))
         assertEquals(Money.dollar(15), five.times(3))
+    }
+
+    @Test
+    fun testSimpleAddition() {
+        val five = Money.dollar(5)
+        val sum: Expression = five.plus(five)
+        val bank = Bank()
+        val reduced: Money = bank.reduce(sum, "USD")
+        assertEquals(Money.dollar(10), reduced)
     }
 }
