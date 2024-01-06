@@ -1,6 +1,6 @@
 package com.example.tddplayground.model
 
-abstract class Money(val amount: Int, val currency: String) {
+open class Money(val amount: Int, val currency: String) {
 
     companion object {
         fun dollar(amount: Int): Dollar = Dollar(amount, "USD")
@@ -9,8 +9,10 @@ abstract class Money(val amount: Int, val currency: String) {
 
     override fun equals(other: Any?): Boolean {
         val money = other as Money
-        return (amount == money.amount) && (javaClass == other.javaClass)
+        return (amount == money.amount) && (currency == other.currency)
     }
 
-    abstract fun times(multiplier: Int): Money
+    fun times(multiplier: Int): Money {
+        return Money(amount * multiplier, currency)
+    }
 }
