@@ -2,6 +2,10 @@ package com.example.tddplayground.model
 
 class Bank {
     fun reduce(source: Expression, to: String): Money {
-        return Money(10, "USD")
+        if (source is Money)
+            return source.reduce(to) as Money
+
+        val sum = source as Sum
+        return sum.reduce(to)
     }
 }
