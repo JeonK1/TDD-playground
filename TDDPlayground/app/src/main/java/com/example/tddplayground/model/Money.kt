@@ -20,5 +20,8 @@ open class Money(val amount: Int, val currency: String): Expression {
         return Sum(this, money)
     }
 
-    override fun reduce(to: String): Money = this
+    override fun reduce(bank: Bank, to: String): Money {
+        val rate = bank.rate(currency, to)
+        return Money(amount / rate, to)
+    }
 }
