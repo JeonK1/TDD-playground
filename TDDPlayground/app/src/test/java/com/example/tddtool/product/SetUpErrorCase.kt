@@ -1,6 +1,6 @@
 package com.example.tddtool.product
 
-class WasRun(override val name: String) : TestCase(name) {
+class SetUpErrorCase(override val name: String) : TestCase(name) {
     var wasRun: Boolean = false
 
     fun testMethod() {
@@ -8,13 +8,9 @@ class WasRun(override val name: String) : TestCase(name) {
         log += "testMethod "
     }
 
-    fun testBrokenMethod() {
-        throw Exception()
-    }
 
     override fun setUp() {
-        wasRun = false
-        log += "setUp "
+        throw Exception()
     }
 
     override fun tearDown() {
