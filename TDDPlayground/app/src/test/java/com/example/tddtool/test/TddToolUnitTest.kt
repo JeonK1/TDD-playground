@@ -7,21 +7,10 @@ import org.junit.Test
 class TddToolUnitTest {
     private lateinit var test: WasRun
 
-    @Before
-    fun setUp() {
+    @Test
+    fun testTemplateMethod() {
         test = WasRun("testMethod")
-    }
-
-
-    @Test
-    fun testRunning() {
         test.run()
-        assert(test.wasRun)
-    }
-
-    @Test
-    fun testSetUp() {
-        test.run()
-        assert(test.wasSetUp)
+        assert("setUp testMethod tearDown " == test.log)
     }
 }
