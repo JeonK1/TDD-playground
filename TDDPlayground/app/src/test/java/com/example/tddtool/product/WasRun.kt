@@ -9,6 +9,10 @@ class WasRun(override val name: String) : TestCase(name) {
         log += "testMethod "
     }
 
+    fun testBrokenMethod() {
+        throw Exception()
+    }
+
     override fun setUp() {
         wasRun = false
         log += "setUp "
