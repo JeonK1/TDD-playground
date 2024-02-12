@@ -60,4 +60,12 @@ class TddToolUnitTest {
         suite.run(result)
         assert("2 run, 1 failed" == result.summary())
     }
+
+    @Test
+    fun testTearDownIfFailed() {
+        test = WasRun("testBrokenMethod")
+        test.run(result)
+        println(test.log)
+        assert("setUp tearDown " == test.log)
+    }
 }
