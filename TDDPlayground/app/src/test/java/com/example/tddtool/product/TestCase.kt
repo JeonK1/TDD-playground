@@ -9,8 +9,7 @@ open class TestCase(open val name: String) {
     open fun tearDown() {
     }
 
-    fun run(): TestResult {
-        val result = TestResult()
+    fun run(result: TestResult) {
         result.testStarted()
         try {
             setUp()
@@ -20,6 +19,5 @@ open class TestCase(open val name: String) {
             result.testFailed()
         }
         tearDown()
-        return result
     }
 }
